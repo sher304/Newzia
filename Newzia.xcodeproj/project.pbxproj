@@ -10,11 +10,12 @@
 		359DA8A06AB0364815DE64F2 /* Pods_Newzia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3696A462378ECCEF1A951AB2 /* Pods_Newzia.framework */; };
 		60C6C32C29FE8A8A00999731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32B29FE8A8A00999731 /* AppDelegate.swift */; };
 		60C6C32E29FE8A8A00999731 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32D29FE8A8A00999731 /* SceneDelegate.swift */; };
-		60C6C33029FE8A8A00999731 /* HomeViC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32F29FE8A8A00999731 /* HomeViC.swift */; };
+		60C6C33029FE8A8A00999731 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32F29FE8A8A00999731 /* HomeVC.swift */; };
 		60C6C33329FE8A8A00999731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C6C33129FE8A8A00999731 /* Main.storyboard */; };
 		60C6C33629FE8A8A00999731 /* Newzia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C33429FE8A8A00999731 /* Newzia.xcdatamodeld */; };
 		60C6C33829FE8A8B00999731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C6C33729FE8A8B00999731 /* Assets.xcassets */; };
 		60C6C33B29FE8A8B00999731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C6C33929FE8A8B00999731 /* LaunchScreen.storyboard */; };
+		60C6C34929FEA62800999731 /* TopicsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C34829FEA62800999731 /* TopicsCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +24,13 @@
 		60C6C32829FE8A8A00999731 /* Newzia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newzia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C6C32B29FE8A8A00999731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60C6C32D29FE8A8A00999731 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		60C6C32F29FE8A8A00999731 /* HomeViC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViC.swift; sourceTree = "<group>"; };
+		60C6C32F29FE8A8A00999731 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		60C6C33229FE8A8A00999731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C6C33529FE8A8A00999731 /* Newzia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Newzia.xcdatamodel; sourceTree = "<group>"; };
 		60C6C33729FE8A8B00999731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60C6C33A29FE8A8B00999731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60C6C33C29FE8A8B00999731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C6C34829FEA62800999731 /* TopicsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsCollection.swift; sourceTree = "<group>"; };
 		C820322662A25E5E40246E1C /* Pods-Newzia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newzia.debug.xcconfig"; path = "Target Support Files/Pods-Newzia/Pods-Newzia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +89,7 @@
 		60C6C34229FE8BFE00999731 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				60C6C32F29FE8A8A00999731 /* HomeViC.swift */,
+				60C6C34629FEA60E00999731 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +117,23 @@
 			children = (
 			);
 			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		60C6C34629FEA60E00999731 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				60C6C34729FEA61500999731 /* TopicsCollection */,
+				60C6C32F29FE8A8A00999731 /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		60C6C34729FEA61500999731 /* TopicsCollection */ = {
+			isa = PBXGroup;
+			children = (
+				60C6C34829FEA62800999731 /* TopicsCollection.swift */,
+			);
+			path = TopicsCollection;
 			sourceTree = "<group>";
 		};
 		AADB2B61E10528D2EC733FFB /* Pods */ = {
@@ -241,7 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C6C33029FE8A8A00999731 /* HomeViC.swift in Sources */,
+				60C6C33029FE8A8A00999731 /* HomeVC.swift in Sources */,
+				60C6C34929FEA62800999731 /* TopicsCollection.swift in Sources */,
 				60C6C33629FE8A8A00999731 /* Newzia.xcdatamodeld in Sources */,
 				60C6C32C29FE8A8A00999731 /* AppDelegate.swift in Sources */,
 				60C6C32E29FE8A8A00999731 /* SceneDelegate.swift in Sources */,
