@@ -41,11 +41,11 @@ class HomeViewController: UIViewController {
     
     private lazy var topicsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(TopicsCollection.self, forCellWithReuseIdentifier: TopicsCollection.cellId)
-
-        collection.backgroundColor = .orange
+        collection.showsVerticalScrollIndicator = false
         return collection
     }()
     
@@ -97,11 +97,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicsCollection.cellId, for: indexPath) as?  TopicsCollection else { return TopicsCollection()}
-        cell.backgroundColor = .green
+
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: topicsCollection.frame.width / 2, height: 250)
     }
 }
