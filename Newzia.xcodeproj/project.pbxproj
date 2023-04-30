@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		359DA8A06AB0364815DE64F2 /* Pods_Newzia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3696A462378ECCEF1A951AB2 /* Pods_Newzia.framework */; };
 		60C6C32C29FE8A8A00999731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32B29FE8A8A00999731 /* AppDelegate.swift */; };
 		60C6C32E29FE8A8A00999731 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32D29FE8A8A00999731 /* SceneDelegate.swift */; };
 		60C6C33029FE8A8A00999731 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C6C32F29FE8A8A00999731 /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		037E02C74CD32EC620B900D9 /* Pods-Newzia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newzia.release.xcconfig"; path = "Target Support Files/Pods-Newzia/Pods-Newzia.release.xcconfig"; sourceTree = "<group>"; };
+		3696A462378ECCEF1A951AB2 /* Pods_Newzia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Newzia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C6C32829FE8A8A00999731 /* Newzia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newzia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C6C32B29FE8A8A00999731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60C6C32D29FE8A8A00999731 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		60C6C33729FE8A8B00999731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60C6C33A29FE8A8B00999731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60C6C33C29FE8A8B00999731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C820322662A25E5E40246E1C /* Pods-Newzia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newzia.debug.xcconfig"; path = "Target Support Files/Pods-Newzia/Pods-Newzia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359DA8A06AB0364815DE64F2 /* Pods_Newzia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4814954D2245AFD328E0CA18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3696A462378ECCEF1A951AB2 /* Pods_Newzia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		60C6C31F29FE8A8900999731 = {
 			isa = PBXGroup;
 			children = (
 				60C6C32A29FE8A8A00999731 /* Newzia */,
 				60C6C32929FE8A8A00999731 /* Products */,
+				AADB2B61E10528D2EC733FFB /* Pods */,
+				4814954D2245AFD328E0CA18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,16 @@
 			path = Newzia;
 			sourceTree = "<group>";
 		};
+		AADB2B61E10528D2EC733FFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C820322662A25E5E40246E1C /* Pods-Newzia.debug.xcconfig */,
+				037E02C74CD32EC620B900D9 /* Pods-Newzia.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C6C33F29FE8A8B00999731 /* Build configuration list for PBXNativeTarget "Newzia" */;
 			buildPhases = (
+				FD2CC24B93EF855159FF989A /* [CP] Check Pods Manifest.lock */,
 				60C6C32429FE8A8900999731 /* Sources */,
 				60C6C32529FE8A8900999731 /* Frameworks */,
 				60C6C32629FE8A8900999731 /* Resources */,
+				57DC189830905857BAA13096 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57DC189830905857BAA13096 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Newzia/Pods-Newzia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Newzia/Pods-Newzia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Newzia/Pods-Newzia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD2CC24B93EF855159FF989A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Newzia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60C6C32429FE8A8900999731 /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		60C6C34029FE8A8B00999731 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C820322662A25E5E40246E1C /* Pods-Newzia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		60C6C34129FE8A8B00999731 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 037E02C74CD32EC620B900D9 /* Pods-Newzia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
