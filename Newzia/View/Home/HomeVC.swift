@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         return HomeViewModel()
     }()
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 300)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 12000)
     
     private lazy var scrollView: UIScrollView = {
         let scrollV = UIScrollView()
