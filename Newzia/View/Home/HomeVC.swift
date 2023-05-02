@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         let scrollV = UIScrollView()
         scrollV.contentSize = contentSize
         scrollV.frame = view.frame
-        scrollV.contentInsetAdjustmentBehavior = .never
+        scrollV.showsVerticalScrollIndicator = false
         return scrollV
     }()
     
@@ -57,16 +57,21 @@ class HomeViewController: UIViewController {
         let table = UITableView()
         table.register(NewsCell.self, forCellReuseIdentifier: NewsCell.cellId)
         table.backgroundColor = .orange
+        table.isScrollEnabled = false
+        table.showsVerticalScrollIndicator = false
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         initTableView()
         setupConstraints()
     }
     
     private func setupConstraints(){
+        view.backgroundColor = .white
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
@@ -74,7 +79,7 @@ class HomeViewController: UIViewController {
         latesImage.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
+            make.top.equalTo(contentView.safeAreaLayoutGuide).offset(40)
             make.height.equalTo(view.frame.height / 2)
         }
         
@@ -96,18 +101,18 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func initTableView(){
         newsTable.rx.setDelegate(self).disposed(by: disposeBag)
-        //        self.viewModel.newsSubject
-        //            .bind(to: newsTable.rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {index , model, cell in
-        //
-        //        }.disposed(by: disposeBag)
-        
         self.viewModel.newsSubscriber
-            .bind(to: newsTable.rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) { index, model, cell in
-                
-                
+            .bind(to: newsTable.rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath , model, cell in
+                DispatchQueue.main.async {
+                    cell.textLabel?.text = model.data.children.count.description
+                }
             }.disposed(by: disposeBag)
+        
+        self.viewModel.newsSubscriber.subscribe { data in
+            let count = data.element.map({$0.first?.data.children.count})
+            self.newsTable.rx.numberOfSections
+        }
     }
-    
 }
 
 

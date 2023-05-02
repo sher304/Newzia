@@ -10,11 +10,9 @@ import RxSwift
 
 class HomeViewModel{
     
-    let newsSubject = BehaviorSubject<News>(value: News(kind: "", data: NewsData(after: "", dist: 0, modhash: "", geoFilter: .none, children: [], before: .none)))
-    
-    
-    
-    var newsSubscriber: Observable<News> {
+    private let newsSubject = BehaviorSubject<[News]>(value: [News]())
+
+    var newsSubscriber: Observable<[News]> {
         return newsSubject.asObservable()
     }
     
@@ -22,10 +20,9 @@ class HomeViewModel{
         ApiAuth().getNews { newsData in
             switch newsData{
             case.success(let news):
-                self.newsSubject.onNext(news)
+                self.newsSubject.onNext([news])
                 break
             case.failure(_):
-                
                 break
             }
         }

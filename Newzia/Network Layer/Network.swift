@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkLayer {
     
-    static func basicUrl<T: Codable>(url: URLRequest, method: String, complection: @escaping(Result<T, Error>) -> Void){
+    static func basicUrl<T: Codable>(url: URLRequest, method: String, completion: @escaping(Result<T, Error>) -> Void){
         
         guard url.url != nil else { return }
         
@@ -22,7 +22,7 @@ class NetworkLayer {
                 guard let data = responce.data,
                       let jsonObj = try? JSONDecoder().decode(T.self, from: data)
                 else { return }
-                complection(.success(jsonObj))
+                completion(.success(jsonObj))
             }
         }
     }

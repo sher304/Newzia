@@ -49,7 +49,7 @@ struct ChildData: Codable {
     let subredditNamePrefixed: SubredditNamePrefixed
     let hidden: Bool
     let pwls: Int
-    let linkFlairCSSClass: JSONNull?
+    let linkFlairCSSClass: String?
     let downs: Int
     let topAwardedType: JSONNull?
     let hideScore: Bool
@@ -60,14 +60,14 @@ struct ChildData: Codable {
     let authorFlairBackgroundColor: JSONNull?
     let subredditType: SubredditType
     let ups, totalAwardsReceived: Int
-    let mediaEmbed: Gildings
+    let mediaEmbed: MediaEmbed
     let authorFlairTemplateID: JSONNull?
     let isOriginalContent: Bool
     let userReports: [JSONAny]
     let secureMedia: JSONNull?
     let isRedditMediaDomain, isMeta: Bool
     let category: JSONNull?
-    let secureMediaEmbed: Gildings
+    let secureMediaEmbed: MediaEmbed
     let linkFlairText: String?
     let canModPost: Bool
     let score: Int
@@ -122,6 +122,7 @@ struct ChildData: Codable {
     let subredditSubscribers, createdUTC, numCrossposts: Int
     let media: JSONNull?
     let isVideo: Bool
+    let linkFlairTemplateID: String?
 
     enum CodingKeys: String, CodingKey {
         case approvedAtUTC = "approved_at_utc"
@@ -221,23 +222,22 @@ struct ChildData: Codable {
         case numCrossposts = "num_crossposts"
         case media
         case isVideo = "is_video"
+        case linkFlairTemplateID = "link_flair_template_id"
     }
 }
 
 // MARK: - AllAwarding
 struct AllAwarding: Codable {
-    let giverCoinReward: Int?
-    let subredditID: JSONNull?
+    let giverCoinReward, subredditID: JSONNull?
     let isNew: Bool
-    let daysOfDripExtension: Int?
+    let daysOfDripExtension: JSONNull?
     let coinPrice: Int
     let id: String
-    let pennyDonate: Int?
+    let pennyDonate: JSONNull?
     let awardSubType: String
     let coinReward: Int
     let iconURL: String
-    let daysOfPremium: Int?
-    let tiersByRequiredAwardings: JSONNull?
+    let daysOfPremium, tiersByRequiredAwardings: JSONNull?
     let resizedIcons: [ResizedIcon]
     let iconWidth, staticIconWidth: Int
     let startDate: JSONNull?
@@ -248,7 +248,7 @@ struct AllAwarding: Codable {
     let subredditCoinReward, count, staticIconHeight: Int
     let name: String
     let resizedStaticIcons: [ResizedIcon]
-    let iconFormat: String
+    let iconFormat: String?
     let iconHeight: Int
     let pennyPrice: Int?
     let awardType: String
@@ -301,10 +301,19 @@ enum FlairType: String, Codable {
 
 // MARK: - Gildings
 struct Gildings: Codable {
+    let gid1: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case gid1 = "gid_1"
+    }
 }
 
 enum LinkFlairTextColor: String, Codable {
     case dark = "dark"
+}
+
+// MARK: - MediaEmbed
+struct MediaEmbed: Codable {
 }
 
 enum WhitelistStatus: String, Codable {

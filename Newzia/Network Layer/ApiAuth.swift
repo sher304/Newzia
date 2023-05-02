@@ -13,7 +13,7 @@ class ApiAuth{
     
     func getNews(completion: @escaping(Result<News, Error>) -> Void){
         let url = URLRequest(url: urlFactory.news)
-        NetworkLayer.basicUrl(url: url, method: "get", complection: completion)
+        NetworkLayer.basicUrl(url: url, method: "get", completion: completion)
     }
     
 }
