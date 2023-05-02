@@ -101,17 +101,14 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func initTableView(){
         newsTable.rx.setDelegate(self).disposed(by: disposeBag)
-        self.viewModel.newsSubscriber
-            .bind(to: newsTable.rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath , model, cell in
-                DispatchQueue.main.async {
-                    cell.textLabel?.text = model.data.children.count.description
-                }
-            }.disposed(by: disposeBag)
         
-        self.viewModel.newsSubscriber.subscribe { data in
-            let count = data.element.map({$0.first?.data.children.count})
-            self.newsTable.rx.numberOfSections
-        }
+        self.viewModel.newsSubscriber
+            .map({$0.first?.data.children ?? []})
+            .bind(to:
+                    newsTable
+                .rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath, model, cell in
+                    cell.textLabel?.text = model.data.author
+                }.disposed(by: disposeBag)
     }
 }
 
