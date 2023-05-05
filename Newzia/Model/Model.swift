@@ -55,7 +55,7 @@ struct ChildData: Codable {
     let hideScore: Bool
     let name: String
     let quarantine: Bool
-    let linkFlairTextColor: LinkFlairTextColor?
+    let linkFlairTextColor: LinkFlairTextColor
     let upvoteRatio: Double
     let authorFlairBackgroundColor: JSONNull?
     let subredditType: SubredditType
@@ -103,8 +103,7 @@ struct ChildData: Codable {
     let subredditID: SubredditID
     let authorIsBlocked: Bool
     let modReasonBy, removalReason: JSONNull?
-    let linkFlairBackgroundColor: String?
-    let id: String
+    let linkFlairBackgroundColor, id: String
     let isRobotIndexable: Bool
     let reportReasons: JSONNull?
     let author: String
@@ -229,12 +228,13 @@ struct ChildData: Codable {
 
 // MARK: - AllAwarding
 struct AllAwarding: Codable {
-    let giverCoinReward, subredditID: JSONNull?
+    let giverCoinReward: Int?
+    let subredditID: JSONNull?
     let isNew: Bool
-    let daysOfDripExtension: JSONNull?
+    let daysOfDripExtension: Int?
     let coinPrice: Int
     let id: String
-    let pennyDonate: JSONNull?
+    let pennyDonate: Int?
     let awardSubType: String
     let coinReward: Int
     let iconURL: String
@@ -303,11 +303,10 @@ enum FlairType: String, Codable {
 
 // MARK: - Gildings
 struct Gildings: Codable {
-    let gid1, gid2: Int?
+    let gid1: Int?
 
     enum CodingKeys: String, CodingKey {
         case gid1 = "gid_1"
-        case gid2 = "gid_2"
     }
 }
 
