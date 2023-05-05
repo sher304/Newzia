@@ -42,9 +42,23 @@ class NewsCell: UITableViewCell{
         let label = UILabel()
         label.text = "1303"
         label.textColor = .systemGray
+        label.font = .systemFont(ofSize: 12, weight: .light)
+        
+        
+        let image = UIImage(systemName: "text.bubble")
+        let imageV = UIImageView(image: image)
+        imageV.frame = CGRect(x: 35, y: 0, width: 15, height: 15)
+        label.addSubview(imageV)
         return label
     }()
     
+    private lazy var subredditLabel: UILabel = {
+        let label = UILabel()
+        label.text = "news"
+        label.textColor = .gray
+        label.font = .systemFont(ofSize: 12, weight: .light)
+        return label
+    }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -73,6 +87,18 @@ class NewsCell: UITableViewCell{
             make.leading.equalTo(newsImage.snp.trailing).offset(10)
             make.centerY.equalToSuperview()
             make.trailing.equalTo(-5)
+        }
+        
+        parentContent.addSubview(commentsLabel)
+        commentsLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(newsImage.snp.bottom)
+            make.leading.equalTo(newsTitle)
+        }
+        
+        parentContent.addSubview(subredditLabel)
+        subredditLabel.snp.makeConstraints { make in
+            make.top.equalTo(newsImage.snp.top)
+            make.leading.equalTo(newsTitle)
         }
     }
     
