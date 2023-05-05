@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         return HomeViewModel()
     }()
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 12000)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 7)
     
     private lazy var scrollView: UIScrollView = {
         let scrollV = UIScrollView()
@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         initTableView()
+        initScrollView()
         setupConstraints()
     }
     
@@ -101,7 +102,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func initTableView(){
         newsTable.rx.setDelegate(self).disposed(by: disposeBag)
-        
         self.viewModel.newsSubscriber
             .map({$0.first?.data.children ?? []})
             .bind(to:
@@ -110,6 +110,12 @@ extension HomeViewController {
                     cell.textLabel?.text = model.data.author
                 }.disposed(by: disposeBag)
     }
+    
+    private func initScrollView(){
+        //MARK: Scroll height, authomatically update.
+        
+    }
+    
 }
 
 
