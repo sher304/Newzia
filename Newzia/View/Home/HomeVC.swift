@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
         return HomeViewModel()
     }()
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 300)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 7)
     
     private lazy var scrollView: UIScrollView = {
         let scrollV = UIScrollView()
@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         viewModel.viewDidLoad()
         initTableView()
+        initScrollView()
         setupConstraints()
     }
     
@@ -102,17 +103,19 @@ extension HomeViewController {
     private func initTableView(){
         newsTable.rx.setDelegate(self).disposed(by: disposeBag)
         self.viewModel.newsSubscriber
-            .bind(to: newsTable.rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath , model, cell in
-                DispatchQueue.main.async {
-                    cell.textLabel?.text = model.data.children.count.description
-                }
-            }.disposed(by: disposeBag)
-        
-        self.viewModel.newsSubscriber.subscribe { data in
-            let count = data.element.map({$0.first?.data.children.count})
-            self.newsTable.rx.numberOfSections
-        }
+            .map({$0.first?.data.children ?? []})
+            .bind(to:
+                    newsTable
+                .rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath, model, cell in
+                    cell.textLabel?.text = model.data.author
+                }.disposed(by: disposeBag)
     }
+    
+    private func initScrollView(){
+        //MARK: Scroll height, authomatically update.
+        
+    }
+    
 }
 
 

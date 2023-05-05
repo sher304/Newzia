@@ -16,12 +16,13 @@ class NetworkLayer {
         
         var requets = URLRequest(url: url.url!)
         requets.httpMethod = method.uppercased()
-        
         AF.request(requets).response { responce in
             DispatchQueue.main.async {
                 guard let data = responce.data,
                       let jsonObj = try? JSONDecoder().decode(T.self, from: data)
-                else { return }
+                else {
+                    print("err")
+                    return }
                 completion(.success(jsonObj))
             }
         }
