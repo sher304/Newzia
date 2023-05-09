@@ -107,7 +107,8 @@ extension HomeViewController {
             .bind(to:
                     newsTable
                 .rx.items(cellIdentifier: NewsCell.cellId, cellType: NewsCell.self)) {indexPath, model, cell in
-                    cell.textLabel?.text = model.data.author
+                    let data = model.data
+                    cell.fetchData(subtitle: data.subreddit.rawValue, newsLabel: data.title, commentTitle: data.numComments.description, imageURL: data.linkFlairBackgroundColor)
                 }.disposed(by: disposeBag)
     }
     
