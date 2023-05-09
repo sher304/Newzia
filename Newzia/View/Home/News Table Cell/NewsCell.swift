@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 
 class NewsCell: UITableViewCell{
@@ -40,16 +41,17 @@ class NewsCell: UITableViewCell{
     
     private lazy var commentsLabel: UILabel = {
         let label = UILabel()
-        label.text = "1303"
+        label.text = "130"
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 12, weight: .light)
-        
-        
-        let image = UIImage(systemName: "text.bubble")
-        let imageV = UIImageView(image: image)
-        imageV.frame = CGRect(x: 35, y: 0, width: 15, height: 15)
-        label.addSubview(imageV)
         return label
+    }()
+    
+    private lazy var commentImage: UIImageView = {
+        let imageV = UIImageView()
+        imageV.image = UIImage(systemName: "text.bubble")
+        imageV.tintColor = .systemGray
+        return imageV
     }()
     
     private lazy var subredditLabel: UILabel = {
@@ -95,12 +97,30 @@ class NewsCell: UITableViewCell{
             make.leading.equalTo(newsTitle)
         }
         
+        parentContent.addSubview(commentImage)
+        commentImage.snp.makeConstraints { make in
+            make.leading.equalTo(commentsLabel.snp.trailing)
+            make.width.height.equalTo(15)
+            make.centerY.equalTo(commentsLabel)
+        }
+        
         parentContent.addSubview(subredditLabel)
         subredditLabel.snp.makeConstraints { make in
-            make.top.equalTo(newsImage.snp.top)
+            make.top.equalTo(newsImage.snp.top).offset(5)
             make.leading.equalTo(newsTitle)
         }
     }
+}
+
+extension NewsCell{
     
-    
+    public func fetchData(subtitle: String, newsLabel: String,
+                          commentTitle: String, imageURL: String){
+        DispatchQueue.main.async {
+            self.subredditLabel.text = subtitle
+            self.newsTitle.text = newsLabel
+            self.commentsLabel.text = commentTitle
+            self.newsImage.kf.setImage(with: URL(string: imageURL))
+        }
+    }
 }
